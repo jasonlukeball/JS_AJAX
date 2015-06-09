@@ -12,5 +12,5 @@ request.onreadystatechange = function() {
 			modify[i].innerHTML = request.responseText;			
 		}
 	}
-}
+};
 request.send();
