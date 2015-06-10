@@ -1,19 +1,29 @@
 var request;
+
+// Feature Check
 if (window.XMLHttpRequest) {
 	request = new XMLHttpRequest();
 } else {
 	request = new ActiveXObject("Microsoft.XMLHTTP");
 }
+
+// Get JSON Data
 request.open('GET', 'data.json');
+
+
 request.onreadystatechange = function() {
 	if ((request.readyState===4) && (request.status===200)) {
+
 		var items = JSON.parse(request.responseText);
+        console.log (items);
+
 		var output = '<ul>';
-		for (var key in items) {
-			output += '<li>' + items[key].name + '</li>';
+		for (var item in items) {
+			output += '<li>' + items[item].name + '</li>';
 		}
 		output += '</ul>';
 		document.getElementById('update').innerHTML = output;
 	}
-}
+};
+
 request.send();
