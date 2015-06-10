@@ -1,22 +1,36 @@
-var mybutton = document.getElementById('loadbutton');
-mybutton.onclick = function() {
-	var request;
-	if (window.XMLHttpRequest) {
-		request = new XMLHttpRequest();
-	} else {
-		request = new ActiveXObject("Microsoft.XMLHTTP");
-	}
-	request.open('GET', 'data.json');
-	request.onreadystatechange = function() {
-		if ((request.readyState===4) && (request.status===200)) {
-			var items = JSON.parse(request.responseText);
-			var output = '<ul>';
-			for (var key in items) {
-				output += '<li>' + items[key].name + '</li>';
-			}
-			output += '</ul>';
-			document.getElementById('update').innerHTML = output;
-		}
-	}
-	request.send();
-} // loadAJAX
+$("button").click(function() {
+
+    console.log("button clicked");
+
+    // JSON AJAX REQUEST
+    $.getJSON('data.json', function(data) {
+        // THIS IS THE SUCCESS CALLBACK FUNCTION
+        // LOG THE RESULT IN THE CONSOLE
+        console.log(data);
+
+        // LOG THE VALUES FROM THE FIRST "RECORD"
+        console.log("NAME = " + data[0].name);
+        console.log("SHORTNAME = " + data[0].shortname);
+        console.log("REKNOWN = " + data[0].reknown);
+        console.log("BIO = " + data[0].bio);
+
+        // OPEN <ul>
+        $("#update").append("<ul>");
+
+        // LOOP THROUGH ALL RECORDS AND APPEND THEM TO THE PAGE
+        for (var record in data) {
+            $("#update").append("<li>" + data[record].name + "</li>");
+        }
+
+        // CLOSE <ul>
+        $("#update").append("</ul>");
+
+    });
+
+});
+
+
+// AJAX ERROR HANDLING
+$(document).ajaxError(function (evt, jqXHR, settings, err) {
+    console.log("Hmmm. Seems like there was a problem: " + err);
+});

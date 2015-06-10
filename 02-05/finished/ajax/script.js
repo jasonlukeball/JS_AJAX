@@ -1,4 +1,8 @@
+
+// Get data when user clicks the load button
+
 var mybutton = document.getElementById('loadbutton');
+
 mybutton.onclick = function() {
 	var request;
 	if (window.XMLHttpRequest) {
@@ -6,9 +10,13 @@ mybutton.onclick = function() {
 	} else {
 		request = new ActiveXObject("Microsoft.XMLHTTP");
 	}
+
 	request.open('GET', 'data.json');
+
 	request.onreadystatechange = function() {
+
 		if ((request.readyState===4) && (request.status===200)) {
+            // Output JSON
 			var items = JSON.parse(request.responseText);
 			var output = '<ul>';
 			for (var key in items) {
@@ -17,6 +25,7 @@ mybutton.onclick = function() {
 			output += '</ul>';
 			document.getElementById('update').innerHTML = output;
 		}
-	}
+	};
+
 	request.send();
-} // loadAJAX
+};
