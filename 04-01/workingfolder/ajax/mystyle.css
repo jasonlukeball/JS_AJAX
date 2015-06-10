@@ -7,7 +7,6 @@ body {
     text-align: center;
     padding: 20px;
     width: 30%;
-    border: 1px solid black;
 }
 
 #searcharea label {
@@ -45,6 +44,7 @@ p {
     padding: 20px 20px;
     background-color: linen;
     -webkit-animation: myAnimation 1s;
+    height: 250px;
 }
 
 #update img {
