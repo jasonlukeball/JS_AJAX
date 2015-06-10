@@ -1,0 +1,59 @@
+body {
+    background: white;
+}
+
+#searcharea {
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px;
+    width: 30%;
+    border: 1px solid black;
+}
+
+#searcharea label {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+    padding-bottom: 5px;
+}
+
+#searcharea input {
+    width: 80%;
+}
+
+#searchBox {
+    text-align: center;
+}
+
+p {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+#update {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    width: 50%;
+    margin: 0 auto;
+}
+
+#update ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#update ul li {
+    width: 100%;
+    padding: 20px 20px;
+    background-color: linen;
+    -webkit-animation: myAnimation 1s;
+}
+
+#update img {
+    float: left;
+    margin-right: 10px;
+}
+
+
+@-webkit-keyframes myAnimation {
+    0% { opacity: 0.7; }
+    1000% { opacity: 1.0; }
+ }
